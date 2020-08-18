@@ -9,33 +9,38 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
-
+// Employees Array
 let employees = []
-
+// Main menu prompts
 const mainMenu = () => {
   prompt([
+    // Choose the type of employee to create
     {
       type: 'list',
       name: 'type',
       choices: ['Manager', 'Intern', 'Engineer'],
       message: 'What type of employee do you want to create:'
     },
+    // Enter Employee name prompt
     {
       type: 'input',
       name: 'name',
       message: 'Enter the employee name:'
     },
+    // Enter ID Number prompt
     {
       type: 'number',
       name: 'id',
       message: 'Enter your id number:'
     },
+    // Enter email address prompt
     {
       type: 'input',
       name: 'email',
       message: 'Enter your email address:'
     }
   ])
+    // switch case based on which type of employee is selected to be created
     .then(employee => {
       switch (employee.type) {
         case 'Intern':
@@ -53,7 +58,7 @@ const mainMenu = () => {
 }
 
 mainMenu()
-
+// Additional prompt for office number if Manager is selected
 const buildManager = employee => {
   prompt([
     {
@@ -70,6 +75,7 @@ const buildManager = employee => {
     })
     .catch(err => console.log(err))
 }
+// Additional prompt for school name if Intern is selected
 const buildIntern = employee => {
   prompt([
     {
@@ -86,6 +92,7 @@ const buildIntern = employee => {
     })
     .catch(err => console.log(err))
 }
+// Additional prompt for github if Engineer is selected
 const buildEngineer = employee => {
   prompt([
     {
@@ -102,7 +109,7 @@ const buildEngineer = employee => {
     })
     .catch(err => console.log(err))
 }
-
+// Prompt of choice to build another employee, or to finish 
 const subMenu = () => {
   prompt({
     type: 'list',
