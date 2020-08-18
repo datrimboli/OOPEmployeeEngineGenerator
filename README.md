@@ -17,3 +17,4 @@ Continue creating employees until you have the team that you desire!
 
 Link to video (YouTube): https://youtu.be/fH6l_rHg4xY
 
+Screenshot in Screenshot folder
